@@ -8,14 +8,14 @@ import dotenv from "dotenv";
 import multer from "multer";
 import { readFile } from 'node:fs';
 import fs from "fs";
-import { upload_file } from __dirname+"/cloudinary.js";
+import { upload_file } from "./cloudinary.js";
 // import csv from "csv-parser";
 import util from "util"
 import csv from "csvtojson";
 import { json2csv } from "csvjson-json2csv";
-import {topsis} from  __dirname+"/function.js"
-import { email_send } from  __dirname+"/email.js";
-import {deleteFirstColumn} from  __dirname+"/delete_first_column.js";
+import {topsis} from "./function.js"
+import { email_send } from "./email.js";
+import {deleteFirstColumn} from "./delete_first_column.js";
 dotenv.config()
 
 
