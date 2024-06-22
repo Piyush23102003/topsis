@@ -7,13 +7,10 @@
         }
     ],
     "routes": [
-        {
-            "src": "/submit",
-            "dest": "/index.js"
-        },
+       
         {
             "src": "/(.*)",
-            "dest": "/index.js"
+            "dest": "/"
         }
     ]
 }
