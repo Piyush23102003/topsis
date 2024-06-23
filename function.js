@@ -1,6 +1,55 @@
 import * as math from 'mathjs';
 
 function topsis(matrix,weights,impacts){
+
+  const transposedMatrix = [];
+
+  // Loop through each column
+  for (let col = 0; col < matrix[0].length; col++) {
+    const newRow = [];
+
+    // Loop through each row, adding elements to the new row (column in transposed)
+    for (let row = 0; row < matrix.length; row++) {
+      newRow.push(matrix[row][col]);
+    }
+
+    transposedMatrix.push(newRow);
+  }
+  let square=[]
+ 
+  for(let i=0;i<transposedMatrix.length;i++){
+    let sum=0;
+    for (let j = 0; j < transposedMatrix[0].length; j++) {
+      sum= sum + transposedMatrix[i][j]*transposedMatrix[i][j];
+    }
+    square.push(sum)
+  }
+
+  
+  for(let i=0;i<square.length;i++){
+    square[i]=math.sqrt(square[i]);
+  }
+  console.log("Square",square)
+
+  for(let i=0;i<matrix.length;i++){
+    for (let j = 0; j < matrix[0].length; j++) {
+      matrix[i][j]=matrix[i][j]/square[j]
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const normalizedMatrix = matrix;
    
     console.log(normalizedMatrix)
@@ -81,3 +130,42 @@ console.log(ranking);
 return ranking;
  }
 export {topsis}
+
+
+
+
+
+
+
+
+
+
+// const transposedMatrix = [];
+
+//   // Loop through each column
+//   for (let col = 0; col < matrix[0].length; col++) {
+//     const newRow = [];
+
+//     // Loop through each row, adding elements to the new row (column in transposed)
+//     for (let row = 0; row < matrix.length; row++) {
+//       newRow.push(matrix[row][col]);
+//     }
+
+//     transposedMatrix.push(newRow);
+//   }
+//   let square=[]
+ 
+//   for(let i=0;i<transposedMatrix[0].length;i++){
+//     let sum=0;
+//     for (let j = 0; j < transposedMatrix.length; j++) {
+//       sum= sum + transposedMatrix[i][j]*transposedMatrix[i][j];
+//     }
+//     square.push(sum)
+//   }
+
+
+//   for(let i=0;i<matrix[0].length;i++){
+//     for (let j = 0; j < matrix.length; j++) {
+//       matrix[i][j]=matrix[i][j]/square[j]
+//     }
+//   }
